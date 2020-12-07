@@ -13,16 +13,6 @@ queue.prototype.get=function(){
     }
 }
 
-queue.prototype.pop=function(){
-    if(this.pool.length>0){
-        return this.pool.pop()
-    }else{
-        return new Promise((resolve)=> {
-            this.resolves.push(resolve)
-        })
-    }
-}
-
 queue.prototype.push=function(data){
     if(this.resolves.length>0){
         this.resolves.shift()(data)
