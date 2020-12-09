@@ -18,7 +18,10 @@ let q=new Queue()
         })
     }
 })()
-let i=0
-for(let i=0;i<1000;i++){
-    q.push(i)
-}
+;(async function f() {
+    let i=0
+    for(let i=0;i<10;i++){
+        await q.push(i)
+    }
+    console.log(q.size())
+})()
